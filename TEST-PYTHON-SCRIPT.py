@@ -1,14 +1,20 @@
-import json
-import requests
+#!/usr/local/bin/python
+# Print ACI Fabric Mmembership of a given APIC
 
-base_url = 'https://192.168.250.50/api/'
+# Importing necessary modules
+import requests
+import sys
+import json
+import os
+
+base_url = 'https://<apic ip address>/api/'
 
 # create credentials structure
-name_pwd = {'aaaUser': {'attributes': {'name': 'admin', 'pwd': 'Pl3xeCu73!'}}}
+name_pwd = {'aaaUser': {'attributes': {'name': '<username>', 'pwd': '<password>'}}}
 json_credentials = json.dumps(name_pwd)
 
-# log in to API
-login_url = base_url + 'aaaLogin.json'
+# log in to APIC
+login_url = base_url + '/api/aaaLogin.json'
 post_response = requests.post(login_url, data=json_credentials)
 
 # get token from login response structure
@@ -20,7 +26,7 @@ auth_token = login_attributes['token']
 cookies = {}
 cookies['APIC-Cookie'] = auth_token
 
-# read a sensor, incorporating token in request
+# read a sensor health, incorporating token in request
 sensor_url = base_url + 'node/mo/topology/pod-1/node-1/av.json?query-target=children&target-subtree-class=infraWiNode'
 get_response = requests.get(sensor_url, cookies=cookies, verify=False)
 

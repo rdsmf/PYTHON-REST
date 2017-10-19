@@ -1,5 +1,5 @@
 #!/usr/local/bin/python
-# Print Chassis info, Hostname and software version of a given switch
+# Vlan configuration script
 
 # Importing necessary modules
 import requests
