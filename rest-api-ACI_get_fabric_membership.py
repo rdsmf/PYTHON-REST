@@ -15,7 +15,7 @@ requests.packages.urllib3.disable_warnings()
 apic_url = "http://<ip address / dns>/"
 
 # This function allows you to view the fabric membership
-url = apic_url + 'api/node/class/topSystem.json?query-target=subtree&target-subtree-class=firmwareCtrlrRunning'
+url = apic_url + ''
 
 # The username and password to access the APIC
 username=’<username>'
@@ -27,5 +27,5 @@ myheaders={'content-type':'application/json-rpc'}
 # Perform a GET on the specified url
 response = requests.get(url,headers=myheaders,auth=(username,password),verify=False).json()
 
-#this last line prints output to the screen.
+# This last line prints output to the screen.
 print json.dumps (response, indent=4, separators=(',', ': '))
