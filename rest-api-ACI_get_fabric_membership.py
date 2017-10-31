@@ -12,7 +12,7 @@ import requests.packages.urllib3
 requests.packages.urllib3.disable_warnings()
 
 # Variable for the APIC controller IP or DNS
-apic_url = "http://<ip address / dns>/"
+apic_url = "http://<ip address or dns>/"
 
 # This function allows you to view the fabric membership
 url = apic_url + ''
