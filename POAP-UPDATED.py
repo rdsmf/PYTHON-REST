@@ -48,19 +48,16 @@ def download_scripts_and_agents():
 
     # poap_log("Downloading scripts and agents from %s" % source_location)
 
-    # download_user_app(source_location, "monitor_dummy.py", "/bootflash/monitor_agent/",
-    #                  "monitor_agent.py")
+    # download_user_app(source_location, "monitor_dummy.py", "/bootflash/monitor_agent/", "monitor_agent.py")
 
-    # download_user_app("/var/lib/tftpboot/agent_bundles", "agent_directory.tar",
-    #                    "/bootflash/agent_root", unpack=True, delete_after_unpack=True)
+    # download_user_app("/var/lib/tftpboot/agent_bundles", "agent_directory.tar", "/bootflash/agent_root", unpack=True, delete_after_unpack=True)
 
     # download_user_app(source_location, "bootflash_agent.sh")
 
-    # download_user_app(source_location, "bootflash_agent.sh", "/bootflash",
-    #                  "different_name_agent.sh")
+    # download_user_app(source_location, "bootflash_agent.sh", "/bootflash", "different_name_agent.sh")
 
-def download_user_app(source_path, source_file, dest_path="/bootflash", dest_file="", unpack=False,
-                      delete_after_unpack=False):
+
+def download_user_app(source_path, source_file, dest_path="/bootflash", dest_file="", unpack=False, delete_after_unpack=False):
             
     # If the user doesn't specify the destination filename, use the same one as the source
     if dest_file == "":
@@ -479,12 +476,9 @@ def split_config_file():
     res_flag_dontprint = 0
     skip_split_config = False
 
-    config_file = open(os.path.join(options["destination_path"],
-                                    options["destination_config"]), "r")
-    config_file_first = open(os.path.join("/bootflash",
-                                          options["split_config_first"]), "w+")
-    config_file_second = open(os.path.join("/bootflash",
-                                           options["split_config_second"]), "w+")
+    config_file = open(os.path.join(options["destination_path"], options["destination_config"]), "r")
+    config_file_first = open(os.path.join("/bootflash", options["split_config_first"]), "w+")
+    config_file_second = open(os.path.join("/bootflash", options["split_config_second"]), "w+")
 
     # If we don't require extra reloads for commands (newer images), skip this
     # splitting of commands (and break the below loop immediately)
@@ -610,6 +604,7 @@ def split_config_file():
     if empty_first_file is 1:
         remove_file(os.path.join(options["destination_path"], options["split_config_first"]))
     config_file_second.close()
+
 
 def md5sum(filename):
             
