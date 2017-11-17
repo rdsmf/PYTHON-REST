@@ -35,8 +35,7 @@ except ImportError:
     legacy = False
 
             # """
-            # Increasing the script timeout to handle the legacy nxos
-            # versions where upgrading will take time
+            # Increasing the script timeout to handle the legacy nxos versions where upgrading will take time
             # """
 
 # script_timeout=1800
@@ -57,29 +56,23 @@ options = {
 def download_scripts_and_agents():
     
             # """
-            # Downloads user scripts, agents, and data after installing the target image, but before reload
-            # The parameters are as follows:
+            # Downloads user scripts, agents, and data after installing the target image, but before reload the parameters are as follows:
             #     source_path: the server path or source path where the source file lives (e.g. /tftpboot)
             #     source_file: the name of the file on the server / source to download (e.g. agents.tar)
-            #     dest_path: optional (defaults to /bootflash) parameter to specify where to download to
-            #                any intermediate directories will automatically be created.
+            #     dest_path: optional (defaults to /bootflash) parameter to specify where to download to any intermediate directories will automatically be created.
             #     dest_file: optional (defaults to same name as source) parameter to specify the target name
-            #     unpack: optional (defaults to False) parameter specifying if we should attempt to extract
-            #             this file. The command 'tar -xf <target> -C /bootflash' is used for extraction.
-            #     delete_after_unpack: optional (defaults to False) parameter specifying that we delete
-            #                          the target file after successful extraction.
+            #     unpack: optional (defaults to False) parameter specifying if we should attempt to extract this file. The command 'tar -xf <target> -C /bootflash' is used for extraction.
+            #     delete_after_unpack: optional (defaults to False) parameter specifying that we delete the target file after successful extraction.
             # """
 
     source_location = options["user_app_path"]
     # poap_log("Downloading scripts and agents from %s" % source_location)
 
             # """
-            # Download the agent "monitor_dummy.py" from options["user_app_path"] to
-            #  /bootflash/monitor_agent and rename it to "monitor_agent.py"
+            # Download the agent "monitor_dummy.py" from options["user_app_path"] to /bootflash/monitor_agent and rename it to "monitor_agent.py"
             # """
 
-    # download_user_app(source_location, "monitor_dummy.py", "/bootflash/monitor_agent/",
-    #                  "monitor_agent.py")
+    # download_user_app(source_location, "monitor_dummy.py", "/bootflash/monitor_agent/", "monitor_agent.py")
 
             # """
             # Download a tarball containing several agents from /var/lib/tftpboot/agent_bundles to
@@ -89,27 +82,22 @@ def download_scripts_and_agents():
             #  after successfully extracting the files.
             # """
 
-    # download_user_app("/var/lib/tftpboot/agent_bundles", "agent_directory.tar",
-    #                    "/bootflash/agent_root", unpack=True, delete_after_unpack=True)
+    # download_user_app("/var/lib/tftpboot/agent_bundles", "agent_directory.tar", "/bootflash/agent_root", unpack=True, delete_after_unpack=True)
 
             # """
-            # Download a shell script / agent called bootflash_agent.sh from options["user_app_path"]
-            #  to /bootflash. Leave it named "bootflash_agent.sh"
+            # Download a shell script / agent called bootflash_agent.sh from options["user_app_path"] to /bootflash. Leave it named "bootflash_agent.sh"
             # """
 
     # download_user_app(source_location, "bootflash_agent.sh")
 
             # """
-            # Download a shell script / agent called "bootflash_agent.sh" from options["user_app_path"]
-            #  to /bootflash, but rename it "different_name_agent.sh"
+            # Download a shell script / agent called "bootflash_agent.sh" from options["user_app_path"] to /bootflash, but rename it "different_name_agent.sh"
             # """
 
-    # download_user_app(source_location, "bootflash_agent.sh", "/bootflash",
-    #                  "different_name_agent.sh")
+    # download_user_app(source_location, "bootflash_agent.sh", "/bootflash", "different_name_agent.sh")
 
 
-def download_user_app(source_path, source_file, dest_path="/bootflash", dest_file="", unpack=False,
-                      delete_after_unpack=False):
+def download_user_app(source_path, source_file, dest_path="/bootflash", dest_file="", unpack=False, delete_after_unpack=False):
             # """
             # Downloads a user application, script, or data item.
             # source_path: the source directory the file we want to download resides in
@@ -173,8 +161,7 @@ def download_user_app(source_path, source_file, dest_path="/bootflash", dest_fil
 def set_defaults_and_validate_options():
             
             # """
-            # Sets all the default values and creates needed variables for POAP to work.
-            # Also validates that the required options are provided
+            # Sets all the default values and creates needed variables for POAP to work. Also validates that the required options are provided
             # """
 
     global options
