@@ -18,7 +18,7 @@ hosts = [
 ]
 
 # Put the IP address of your switch in this URL
-url='http://"+hosts+"/ins'
+url='http://"+hosts+"/inst.json'
 
 # The username and password to access the switch
 username=’<username>'

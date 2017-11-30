@@ -15,7 +15,7 @@ requests.packages.urllib3.disable_warnings()
 apic_url = "http://<ip address or dns>/"
 
 # This function allows you to view the fabric membership
-url = apic_url + ''
+url = apic_url + 'api/node/class/topSystem.json?query-target=subtree&target-subtree-class=firmwareCtrlrRunning'
 
 # The username and password to access the APIC
 username=’<username>'

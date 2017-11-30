@@ -18,7 +18,7 @@ print "enter vlan to be configured"
 vlanId=raw_input()
 
 # Put the IP address of your switch in this URL
-url = "http://"+ip+"/ins"
+url = "http://"+ip+"/inst.json"
 
 # The username and password to access the switch
 username=’<username>'
